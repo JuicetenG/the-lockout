@@ -1,0 +1,9 @@
+<!-- this will be the login page if a user is not authenticated -->
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+{% block content %}
+  <h1>This is Home</h1>
+{% endblock %}
