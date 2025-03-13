@@ -17,8 +17,21 @@
       </div>
       <nav>
         <ul>
-          <li><a href="{% url 'home' %}">Home</a></li>     
-          <li><a href="{% url 'gear-index'%}">Gear Index</a></li>
+  
+          {% if user.is_authenticated %}
+  
+          <li><a href="{% url 'gear-index' %}">Gear Inventory</a></li>
+          <li>
+            <form action="{% url 'logout' %}" id="logout-form" method="POST">
+              {% csrf_token %}
+              <button type="submit">Log out</button>
+            </form>
+          </li>
+          {% else %}
+          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Signup</a></li>
+          {% endif %}
+  
         </ul>
       </nav>
     </header>
