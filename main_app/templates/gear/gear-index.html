@@ -6,6 +6,7 @@
 {% block content %}
 
   <h1>{{ user.username }}'s Gear Inventory</h1>
+  <h3><a href="{% url 'gear-create' %}">Add an item</a></h3>
   <section class="card-container">
     {% for item in gear %}
       <div class="card">
