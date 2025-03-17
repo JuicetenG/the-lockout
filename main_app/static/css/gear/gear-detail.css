@@ -1,0 +1,15 @@
+.detail-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gear-container {
+  display: flex;
+  max-width: 600px;
+  flex-direction: column;
+}
+
+.gear-img img {
+  width: 90%;
+}

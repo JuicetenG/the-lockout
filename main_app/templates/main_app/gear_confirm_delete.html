@@ -1,0 +1,17 @@
+{% extends 'base.html' %}  
+{% load static %} 
+{% block content %}
+
+<div class="page-header">
+  <h1>Delete Gear</h1>
+</div>
+
+<h2>Are you sure you want to delete {{ gear.make }} {{ gear.model }}?</h2>
+
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <a href="{% url 'gear-detail' gear.id %}" class="cancel-btn">Cancel</a>
+  <button type="submit" class="delete-btn">Yes - Delete!</button>
+</form>
+
+{% endblock %}

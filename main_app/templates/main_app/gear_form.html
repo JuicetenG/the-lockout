@@ -6,7 +6,11 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>New Gear</h1>
+  {% if gear %}
+    <h1>Edit {{ gear.make }} {{ gear.model }} {{ gear.type }}</h1>
+  {% else %}
+    <h1>New Gear</h1>
+  {% endif %}
 </div>
 
 <form action="" method="post" class="form-container" enctype="multipart/form-data">
@@ -14,6 +18,9 @@
   <table>
     {{ form.as_table }}
   </table>
+  <label for="id_image">Upload Image:</label>
+  <input type="file" name="image" id="id_image" required>
+
   <button type="submit" class="btn submit">Submit!</button>
 </form>
 

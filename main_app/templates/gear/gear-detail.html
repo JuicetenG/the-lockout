@@ -1,8 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/gear/gear-detail.css' %}" />
 {% endblock %}
 {% block content %}
-  <h1>This is detail</h1>
+  <div class="detail-wrapper">
+    <section class="gear-container">
+      <h1>{{ gear.make }} {{ gear.type }}</h1>
+      <div class="gear-img">
+        <img src="{{ gear.image }}" alt="{{ gear.make }} {{ gear.model }}" />
+      </div>
+
+      <div class="gear-details">
+        <p>Model: {{ gear.model }}</p>
+        <p>Price: ${{ gear.cost }}</p>
+        <p>Open for trade: {{ gear.trade }}</p>
+      </div>
+
+      <div class="gear-actions">
+        <a href="{% url 'gear-update' gear.id %}" class="edit-btn">edit</a>
+        <a href="{% url 'gear-delete' gear.id %}" class="delete-btn">delete</a>
+      </div>
+    </section>
+  </div>
 {% endblock %}

@@ -10,17 +10,19 @@
   <section class="card-container">
     {% for item in gear %}
       <div class="card">
-        <div class="card-content">
-          <h2 class="card-title">{{ item.make }} {{ item.type }}</h2>
-          <div class="card-img-container">
-            <img
-              src="{{ item.image.url }}"
-            />
+        <a href="/gear/{{ item.id }}">
+          <div class="card-content">
+            <h2 class="card-title">{{ item.make }} {{ item.type }}</h2>
+            <div class="card-img-container">
+              <img
+                src="{{ item.image }}"
+              />
+            </div>
+            <p>Model: {{ item.model }}</p>
+            <p>Price: ${{ item.cost }}</p>
+            <p>Open for trade: {{ item.trade }}</p>
           </div>
-          <p>Model: {{ item.model }}</p> 
-          <p>Price: {{ item.cost }}</p>
-          <p>Open for trade: {{ item.trade }}</p>
-        </div>
+        </a>
       </div>
     {% endfor %}
   </section>
