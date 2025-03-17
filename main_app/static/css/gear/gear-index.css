@@ -1,8 +1,26 @@
-.card-container {
-  width: 85%;
+.index-header {
+  position: fixed;
+  top: 75px;
+  z-index: 1;
+  width: 75%;
+  background-color: #f8f9fa;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
+  justify-content: space-between;
+  box-shadow: 0 8px 8px -8px #495057;
+}
+
+.card-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-auto-rows: 390px;
+  gap: 40px;
+  min-height: 100vh;
+  padding-bottom: 30px;
+  padding-top: 172px;
 }
 
 .card-img-container {
@@ -17,8 +35,28 @@
 .card-img-container img {
   width: 100%;
   height: 100%;
+  margin-bottom: 2px;
 }
 
 .card {
-  max-width: 400px;
+  box-shadow: 2px 2px 8px #495057;
+  padding: 10px;
+  width: 400px;
+  height: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
 }
+
+.card h2 {
+  text-align: center;
+  margin-top: -10px;
+  padding-bottom: 5px;
+}
+
+.gear-details {
+  padding-left: 10px;
+  margin-top: 7px;
+}
+

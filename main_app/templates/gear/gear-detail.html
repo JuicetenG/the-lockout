@@ -10,16 +10,16 @@
       <div class="gear-img">
         <img src="{{ gear.image }}" alt="{{ gear.make }} {{ gear.model }}" />
       </div>
-
-      <div class="gear-details">
-        <p>Model: {{ gear.model }}</p>
-        <p>Price: ${{ gear.cost }}</p>
-        <p>Open for trade: {{ gear.trade }}</p>
-      </div>
-
-      <div class="gear-actions">
-        <a href="{% url 'gear-update' gear.id %}" class="edit-btn">edit</a>
-        <a href="{% url 'gear-delete' gear.id %}" class="delete-btn">delete</a>
+      <div class="details-bottom">
+        <div class="gear-details">
+          <p>Model: {{ gear.model }}</p>
+          <p>Price: ${{ gear.cost }}</p>
+          <p>Open for trade: {{ gear.trade }}</p>
+        </div>
+        <div class="gear-actions">
+          <button><a href="{% url 'gear-update' gear.id %}" class="edit-btn">edit</a></button>
+          <button><a href="{% url 'gear-delete' gear.id %}" class="delete-btn">delete</a></button>
+        </div>
       </div>
     </section>
   </div>

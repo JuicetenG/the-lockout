@@ -5,23 +5,31 @@
 {% endblock %} 
 {% block content %}
 
-<div class="page-header">
-  {% if gear %}
-    <h1>Edit {{ gear.make }} {{ gear.model }} {{ gear.type }}</h1>
-  {% else %}
-    <h1>New Gear</h1>
-  {% endif %}
+<div class="form-wrapper">
+  <form action="" method="post" class="form-container" enctype="multipart/form-data">
+    <div class="page-header">
+      {% if gear %}
+        <div class="edit-header-with-image">
+          <h1>Edit {{ gear.make }} {{ gear.model }} {{ gear.type }}</h1>
+          <div class="edit-image-container">
+            <img src="{{ gear.image }}" alt="{{ gear.make }} {{ gear.model }}" />
+          </div>
+        </div>
+      {% else %}
+        <h1>New Gear</h1>
+      {% endif %}
+    </div>
+      
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+      <div class="image-upload">
+        <th><label for="id_image">Upload Image:</label></th>
+        <td><input type="file" name="image" id="id_image" required></td>
+      </div>
+    </table>
+    <button type="submit" class="btn submit">Submit!</button>
+  </form>
 </div>
-
-<form action="" method="post" class="form-container" enctype="multipart/form-data">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <label for="id_image">Upload Image:</label>
-  <input type="file" name="image" id="id_image" required>
-
-  <button type="submit" class="btn submit">Submit!</button>
-</form>
 
 {% endblock %}

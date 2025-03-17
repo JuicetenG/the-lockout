@@ -5,22 +5,26 @@
 {% endblock %}
 {% block content %}
 
-  <h1>{{ user.username }}'s Gear Inventory</h1>
-  <h3><a href="{% url 'gear-create' %}">Add an item</a></h3>
+  <header class="index-header">
+    <h1>{{ user.username }}'s Gear Inventory</h1>
+    <button><a href="{% url 'gear-create' %}">Add an item</a></button>
+  </header>
   <section class="card-container">
     {% for item in gear %}
       <div class="card">
         <a href="/gear/{{ item.id }}">
           <div class="card-content">
-            <h2 class="card-title">{{ item.make }} {{ item.type }}</h2>
+            <h2 class="card-title">{{ item.make }} {{ item.model }}</h2>
             <div class="card-img-container">
               <img
-                src="{{ item.image }}"
+                src="{{ item.image }}" alt="{{ gear.make }} {{ gear.model }}"
               />
             </div>
-            <p>Model: {{ item.model }}</p>
-            <p>Price: ${{ item.cost }}</p>
-            <p>Open for trade: {{ item.trade }}</p>
+            <div class="gear-details">
+              <p>Price: ${{ item.cost }}</p>
+              <p>Type: {{ item.type }}</p>
+              <p>Open for trade: {{ item.trade }}</p>
+            </div>
           </div>
         </a>
       </div>
