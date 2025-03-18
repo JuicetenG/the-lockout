@@ -12,7 +12,7 @@
   
     <form action="" method="post" class="form">
       {% csrf_token %}
-      <button><a href="{% url 'gear-detail' gear.id %}" class="cancel-btn">Cancel</a></button>
+      <button type="button"><a href="{% url 'gear-detail' gear.id %}" class="cancel-btn">Cancel</a></button>
       <button type="submit" class="delete-btn">Yes - Delete!</button>
     </form>
   </div>
