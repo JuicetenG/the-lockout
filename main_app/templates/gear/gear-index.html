@@ -7,7 +7,18 @@
 
   <header class="index-header">
     <h1>{{ user.username }}'s Gear Inventory</h1>
-    <button><a href="{% url 'gear-create' %}">Add an item</a></button>
+    <div>
+      <form method="GET">
+        <label for="type">Sort by type:</label>
+        <select name="type" id="type" onchange="this.form.submit()">
+          <option value="">-</option>
+          {% for gear_type in gear_types %}
+            <option value="{{ gear_type }}" {% if gear_type == selected_type %}selected{% endif %}>{{ gear_type }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      <button><a href="{% url 'gear-create' %}">Add an item</a></button>
+    </div>
   </header>
   <section class="card-container">
     {% for item in gear %}

@@ -15,8 +15,14 @@ class Home(LoginView):
 
 @login_required
 def gear_index(request):
-    gear_items = Gear.objects.filter(user=request.user)
-    return render(request, 'gear/gear-index.html', {'gear': gear_items})
+    gear_types = Gear.objects.values_list('type', flat=True).distinct()
+    selected_type = request.GET.get('type', None)
+    if selected_type:
+        gear = Gear.objects.filter(type=selected_type)
+    else:
+        gear = Gear.objects.all()
+
+    return render(request, 'gear/gear-index.html', {'gear': gear, 'gear_types': gear_types, 'selected_type': selected_type})
 
 class GearCreate(ImageUploadMixin, LoginRequiredMixin, CreateView):
     model = Gear
