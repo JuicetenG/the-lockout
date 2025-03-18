@@ -1,0 +1,11 @@
+.delete-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h2 {
+  padding-bottom: 20px;
+}

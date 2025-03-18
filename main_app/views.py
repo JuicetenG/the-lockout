@@ -23,7 +23,7 @@ class GearCreate(ImageUploadMixin, LoginRequiredMixin, CreateView):
     fields = ['make', 'model', 'type', 'cost', 'trade']
     success_url = '/gear/' 
 
-class GearUpdate(ImageUploadMixin, LoginRequiredMixin, UpdateView):
+class GearUpdate(LoginRequiredMixin, UpdateView):
     model = Gear
     fields = [ 'cost', 'trade']
     success_url = '/gear/'

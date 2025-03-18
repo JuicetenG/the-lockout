@@ -23,10 +23,12 @@
     {% csrf_token %}
     <table>
       {{ form.as_table }}
-      <div class="image-upload">
-        <th><label for="id_image">Upload Image:</label></th>
-        <td><input type="file" name="image" id="id_image" required></td>
-      </div>
+      {% if not gear %}
+        <div class="image-upload">
+          <th><label for="id_image">Upload Image:</label></th>
+          <td><input type="file" name="image" id="id_image" required></td>
+        </div>
+      {% endif %}
     </table>
     <button type="submit" class="btn submit">Submit!</button>
   </form>
