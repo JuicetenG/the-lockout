@@ -34,7 +34,13 @@
             <div class="gear-details">
               <p>Price: ${{ item.cost }}</p>
               <p>Type: {{ item.type }}</p>
-              <p>Open for trade: {{ item.trade }}</p>
+              <p>Open for trade: 
+                {% if item.trade %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </p>
             </div>
           </div>
         </a>

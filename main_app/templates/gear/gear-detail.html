@@ -14,7 +14,13 @@
         <div class="gear-details">
           <p>Model: {{ gear.model }}</p>
           <p>Price: ${{ gear.cost }}</p>
-          <p>Open for trade: {{ gear.trade }}</p>
+          <p>Open for trade: 
+            {% if gear.trade %}
+              Yes
+            {% else %}
+              No
+            {% endif %}
+          </p>
         </div>
         <div class="gear-actions">
           <button><a href="{% url 'gear-update' gear.id %}" class="edit-btn">edit</a></button>
